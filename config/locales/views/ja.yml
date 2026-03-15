@@ -1,0 +1,20 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      update: 更新
+      submit: 保存
+  devise:
+    sessions:
+      new:
+        title: ログイン
+    registrations:
+      new:
+        title: 新規登録
+    shared:
+      links:
+        sign_in: ログイン
+        sign_up: 新規登録
+        forgot_your_password: パスワードをお忘れの方はこちら
+        didn_t_receive_confirmation_instructions: 確認メールが届かない方はこちら
+        didn_t_receive_unlock_instructions: アカウントのロック解除はこちら
