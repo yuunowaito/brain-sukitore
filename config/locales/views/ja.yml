@@ -11,6 +11,12 @@ ja:
     registrations:
       new:
         title: 新規登録
+    passwords:
+      new:
+        title: パスワードをお忘れの方へ
+        submit: パスワードリセットメールを送信する
+      edit:
+        title: パスワードを変更する
     shared:
       links:
         sign_in: ログイン
