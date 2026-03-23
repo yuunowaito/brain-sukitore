@@ -1,0 +1,142 @@
+<% content_for :title, "脳を鍛えよう" %>
+
+<%# ===== Hero セクション ===== %>
+<section class="hero min-h-[70vh] bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10">
+  <div class="hero-content text-center flex-col gap-8 py-16 px-4">
+    <%# バッジ %>
+    <div class="badge badge-primary badge-outline gap-1 px-3 py-3 text-sm font-medium">
+      ✨ 毎日30秒からはじめる脳トレ
+    </div>
+
+    <%# メインコピー %>
+    <div class="max-w-2xl">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-base-content leading-tight mb-4">
+        あなたの脳を、<br>
+        <span class="text-primary">もっと速く</span>鍛えよう。
+      </h1>
+      <p class="text-base sm:text-lg text-base-content/60 leading-relaxed">
+        ひらがなの計算ゲームで、脳の処理速度をトレーニング。<br class="hidden sm:inline">
+        スコアを記録して、成長を実感しよう。
+      </p>
+    </div>
+
+    <%# CTAボタン %>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <% if user_signed_in? %>
+        <%= link_to "ゲームをはじめる", "#", class: "btn btn-primary btn-lg gap-2" do %>
+          ▶ ゲームをはじめる
+        <% end %>
+      <% else %>
+        <%= link_to "無料で登録してはじめる", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to "まずはゲストで試す", "#", class: "btn btn-outline btn-lg" %>
+      <% end %>
+    </div>
+
+    <%# サブテキスト %>
+    <p class="text-xs text-base-content/40">登録不要でゲストプレイも可能 · 完全無料</p>
+  </div>
+</section>
+
+<%# ===== 特徴セクション ===== %>
+<section class="py-16 px-4 bg-base-100">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-base-content mb-2">
+      脳のスキトレの特徴
+    </h2>
+    <p class="text-center text-base-content/50 mb-10 text-sm">続けやすい仕組みで、毎日の習慣に</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="card-body items-center text-center gap-3">
+          <div class="text-4xl">⏱️</div>
+          <h3 class="card-title text-base">30秒で完結</h3>
+          <p class="text-sm text-base-content/60">
+            忙しい朝でも大丈夫。たった30秒のゲームで脳をウォームアップできます。
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="card-body items-center text-center gap-3">
+          <div class="text-4xl">📈</div>
+          <h3 class="card-title text-base">スコアを記録</h3>
+          <p class="text-sm text-base-content/60">
+            プレイするたびにスコアが記録され、成長グラフで上達を実感できます。
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="card-body items-center text-center gap-3">
+          <div class="text-4xl">🧩</div>
+          <h3 class="card-title text-base">複数のゲーム</h3>
+          <p class="text-sm text-base-content/60">
+            ひらがな計算など、脳の異なる部位を刺激するゲームを順次追加予定。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ===== ゲーム紹介セクション ===== %>
+<section class="py-16 px-4 bg-base-200">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-base-content mb-2">
+      今すぐ遊べる脳トレ
+    </h2>
+    <p class="text-center text-base-content/50 mb-10 text-sm">あなたの脳を刺激しよう</p>
+
+    <%# ゲームカード（将来的に game_types からループ） %>
+    <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group">
+      <div class="card-body flex-row items-center gap-4">
+        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+          <span class="text-3xl">🧮</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="card-title text-lg">ひらがな計算</h3>
+          <p class="text-sm text-base-content/60 mt-1">
+            ひらがなで表された数字の足し算・引き算を解こう。<br>
+            30秒で何問解けるか挑戦！
+          </p>
+          <div class="flex gap-2 mt-2">
+            <div class="badge badge-outline badge-sm">初級〜上級</div>
+            <div class="badge badge-outline badge-sm">30秒</div>
+          </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30 group-hover:text-primary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+    </div>
+
+    <%# Coming soon カード %>
+    <div class="card bg-base-100 shadow-sm opacity-50 mt-4">
+      <div class="card-body flex-row items-center gap-4">
+        <div class="w-16 h-16 bg-base-200 rounded-2xl flex items-center justify-center flex-shrink-0">
+          <span class="text-3xl">🔒</span>
+        </div>
+        <div>
+          <h3 class="card-title text-lg text-base-content/50">近日公開予定</h3>
+          <p class="text-sm text-base-content/40">新しいゲームを追加予定です。お楽しみに！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ===== CTA セクション（未ログイン時のみ） ===== %>
+<% unless user_signed_in? %>
+<section class="py-16 px-4 bg-primary text-primary-content">
+  <div class="text-center max-w-xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">さあ、はじめよう</h2>
+    <p class="text-primary-content/80 mb-8 text-sm sm:text-base">
+      無料で登録してスコアを記録しよう。<br>あなたの成長を毎日トラッキング。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <%= link_to "無料で登録する", new_user_registration_path, class: "btn btn-accent btn-lg" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline btn-lg text-primary-content border-primary-content/50 hover:bg-primary-content/10" %>
+    </div>
+  </div>
+</section>
+<% end %>
