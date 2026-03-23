@@ -1,10 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+  <%= render 'logged_in' %>
 <% else %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
+  <%= render 'logged_out' %>
 <% end %>
-<h1>脳のスキトレ</h1>
-<p>ようこそ！</p>
-<p class="text-red-500">Tailwindのテスト</p>
-<button class="btn btn-primary">テスト</button>
