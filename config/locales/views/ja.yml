@@ -11,6 +11,13 @@ ja:
     registrations:
       new:
         title: 新規登録
+      edit:
+        title: アカウント設定
+        leave_blank: 変更しない場合は空白のままにしてください
+        current_password_hint: 変更には現在のパスワードが必要です
+        cancel_account: アカウント削除
+        unhappy: アカウントを削除する
+        back: 戻る
     passwords:
       new:
         title: パスワードをお忘れの方へ
