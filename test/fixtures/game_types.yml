@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hiragana_calc:
+  name: hiragana_calc
+  display_name: ひらがな計算
+  description: ひらがなで書かれた数式を解いて脳を鍛える脳トレです。

@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+GameType.find_or_create_by!(name: 'hiragana_calc') do |game_type|
+  game_type.display_name = 'ひらがな計算'
+  game_type.description = 'ひらがなで書かれた数式を解いて脳を鍛える脳トレです。'
+end
