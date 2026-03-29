@@ -9,7 +9,7 @@ class HiraganaCalculator
     "ろく"   => 6,
     "なな"   => 7,
     "はち"   => 8,
-    "きゅう" => 9,
+    "きゅう" => 9
   }.freeze
 
   HIRAGANA_TO_OPERATOR = {
@@ -30,5 +30,4 @@ class HiraganaCalculator
   def self.number_to_hiragana(number)
     HIRAGANA_TO_NUMBER.key(number)
   end
-
 end

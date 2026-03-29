@@ -1,9 +1,9 @@
 class QuestionGenerator
-  OPERATORS = ["たす", "ひく"].freeze
+  OPERATORS = [ "たす", "ひく" ].freeze
 
   def self.generate
     loop do
-      count   = [3, 4].sample
+      count   = [ 3, 4 ].sample
       numbers = Array.new(count) { rand(1..9) }
       operators = Array.new(count - 1) { OPERATORS.sample }
 
@@ -37,7 +37,7 @@ class QuestionGenerator
   end
 
   def self.generate_choices(answer)
-    choices = [answer]
+    choices = [ answer ]
     until choices.size == 4
       dummy = answer + rand(-5..5)
       next if dummy < 0
