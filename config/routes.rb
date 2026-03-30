@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :games, only: [ :index, :show ]
+
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations"
