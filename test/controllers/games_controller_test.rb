@@ -2,12 +2,12 @@ require "test_helper"
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get games_index_url
+    get games_path
     assert_response :success
   end
 
   test "should get show" do
-    get games_show_url
+    get game_path(id: "hiragana_calc")
     assert_response :success
   end
 end

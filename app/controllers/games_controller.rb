@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @game_type = GameType.find_by!(name: 'hiragana_calc')
+    @game_type = GameType.find_by!(name: "hiragana_calc")
   end
 
   def show
