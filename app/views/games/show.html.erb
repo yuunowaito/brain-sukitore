@@ -1,0 +1,9 @@
+<div>
+  <p><%= @question[:text] %> =？</p>
+
+  <ul>
+    <% @question[:choices].each do |choice| %>
+      <li><%= choice %></li>
+    <% end %>
+  </ul>
+</div>
