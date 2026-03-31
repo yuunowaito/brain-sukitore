@@ -1,9 +1,24 @@
-<div>
-  <p><%= @question[:text] %> =？</p>
+<% content_for :title, "ひらがな計算" %>
 
-  <ul>
-    <% @question[:choices].each do |choice| %>
-      <li><%= choice %></li>
-    <% end %>
-  </ul>
+<div class="min-h-screen bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10 flex items-center justify-center px-4 py-16">
+  <div class="max-w-lg w-full">
+
+    <%# 問題文 %>
+    <div class="text-center mb-12 w-full max-w-none">
+      <p class="text-base-content/50 text-sm mb-4">答えを選んでください</p>
+      <h2 class="font-extrabold text-base-content leading-loose whitespace-nowrap" style="font-size: clamp(1.2rem, 5vw, 3rem);">
+        <%= @question[:text] %> ＝ ？
+      </h2>
+    </div>
+
+    <%# 4択ボタン %>
+    <div class="grid grid-cols-2 gap-4">
+      <% @question[:choices].each do |choice| %>
+        <button class="btn btn-outline btn-lg text-2xl font-bold h-24">
+          <%= choice %>
+        </button>
+      <% end %>
+    </div>
+
+  </div>
 </div>
