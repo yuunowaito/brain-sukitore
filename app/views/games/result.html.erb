@@ -1,0 +1,11 @@
+<% content_for :title, "結果" %>
+
+<div class="min-h-screen bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10 flex items-center justify-center px-4">
+  <div class="text-center">
+    <h1 class="text-4xl font-extrabold mb-4">ゲーム終了！</h1>
+    <p class="text-2xl mb-8">
+      スコア: <span class="text-primary font-bold"><%= @score %></span> 問正解
+    </p>
+    <%= link_to "もう一度挑戦する", game_path(id: "hiragana_calc"), class: "btn btn-primary btn-lg" %>
+  </div>
+</div>

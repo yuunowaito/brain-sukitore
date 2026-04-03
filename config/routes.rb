@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :games, only: [ :index, :show ]
+  resources :games, only: [ :index, :show ] do
+    collection do
+      post :answer
+      get  :result
+    end
+  end
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
