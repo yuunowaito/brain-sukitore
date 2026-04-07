@@ -22,5 +22,18 @@ class GamesController < ApplicationController
 
   def result
     @score = session[:score] || 0
+    save_score if user_signed_in?
+  end
+
+  private
+
+  def save_score
+    game_type = GameType.find_by!(name: "hiragana_calc")
+    Score.create!(
+      user: current_user,
+      game_type: game_type,
+      score: @score,  # ← ここで使う
+      played_on: Time.current.in_time_zone("Tokyo").to_date
+    )
   end
 end
