@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_28_030754) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_07_152230) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,18 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_28_030754) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_type_id", null: false
+    t.integer "score", null: false
+    t.date "played_on", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_type_id"], name: "index_scores_on_game_type_id"
+    t.index ["user_id", "game_type_id", "played_on"], name: "index_scores_on_user_id_and_game_type_id_and_played_on"
+    t.index ["user_id"], name: "index_scores_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,4 +56,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_28_030754) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "scores", "game_types"
+  add_foreign_key "scores", "users"
 end
