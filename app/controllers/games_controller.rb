@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  include BestScoreLoadable
+  before_action :set_best_score, only: [ :result ]
+
   def index
     @game_type = GameType.find_by!(name: "hiragana_calc")
   end
