@@ -8,7 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-GameType.find_or_create_by!(name: 'hiragana_calc') do |game_type|
-  game_type.display_name = 'ひらがな計算'
-  game_type.description = 'ひらがなで書かれた数式を解いて脳を鍛える脳トレです。'
+[
+  { name: 'hiragana_calc', display_name: 'ひらがな計算', description: 'ひらがなで書かれた数式を解いて脳を鍛える脳トレです。' },
+  { name: 'color_janken', display_name: '色じゃんけん', description: '青い手には勝つ手を、赤い手には負ける手を出す脳トレです。' }
+].each do |attrs|
+  GameType.find_or_create_by!(name: attrs[:name]) do |game_type|
+    game_type.display_name = attrs[:display_name]
+    game_type.description = attrs[:description]
+  end
 end
