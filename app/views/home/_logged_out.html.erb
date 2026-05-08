@@ -88,7 +88,7 @@
     <p class="text-center text-base-content/50 mb-10 text-sm">あなたの脳を刺激しよう</p>
 
     <%# ゲームカード（将来的に game_types からループ） %>
-    <%= link_to games_path, class: "card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group" do %>
+    <%= link_to game_path(@today_game), class: "card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group" do %>
       <div class="card-body flex-row items-center gap-4">
         <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
           <span class="text-3xl">🧮</span>
