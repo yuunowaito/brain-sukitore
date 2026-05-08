@@ -1,0 +1,41 @@
+<% content_for :title, "ひらがな計算" %>
+
+<div class="min-h-screen bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10 px-4"
+     data-controller="game"
+     data-game-answer-value="<%= @question[:answer] %>">
+
+  <%# スコアとタイマー %>
+  <div class="flex justify-between items-center py-4">
+    <div class="badge badge-primary badge-lg gap-1">
+      スコア: <span data-game-target="score">0</span>
+    </div>
+    <div class="badge badge-outline badge-lg gap-1">
+      ⏱ <span data-game-target="timer">30</span> 秒
+    </div>
+  </div>
+
+  <%# 問題文と選択肢 %>
+  <div class="flex flex-col items-center justify-center w-full" style="min-height: calc(100vh - 60px);">
+
+    <%# 問題文 %>
+    <div class="text-center mb-12 w-full">
+      <p class="text-base-content/50 text-sm mb-4">答えを選んでください</p>
+      <h2 class="font-extrabold text-base-content leading-loose whitespace-nowrap w-full text-center"
+          style="font-size: clamp(1.2rem, 5vw, 3rem);"
+          data-game-target="question">
+        <%= @question[:text] %> ＝ ？
+      </h2>
+    </div>
+
+    <%# 4択ボタン %>
+    <div class="max-w-lg w-full grid grid-cols-2 gap-4" data-game-target="choices">
+      <% @question[:choices].each do |choice| %>
+        <button class="btn btn-outline btn-lg text-2xl font-bold h-24"
+                data-action="click->game#selectAnswer"
+                data-choice="<%= choice %>">
+          <%= choice %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :games, only: [ :index, :show ] do
+  resources :games, only: [ :show ] do
+    member do
+      get :play
+    end
     collection do
       post :answer
       get  :result
