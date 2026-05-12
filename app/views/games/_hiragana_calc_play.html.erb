@@ -1,0 +1,28 @@
+<div class="flex flex-col items-center justify-center w-full"
+     style="min-height: calc(100vh - 60px);"
+     data-controller="hiragana-calc"
+     data-action="game:questionUpdated@window->hiragana-calc#gameQuestionUpdated"
+     data-hiragana-calc-answer-value="<%= @question[:answer] %>">
+
+  <%# 問題文 %>
+  <div class="text-center mb-12 w-full">
+    <p class="text-base-content/50 text-sm mb-4">答えを選んでください</p>
+    <h2 class="font-extrabold text-base-content leading-loose whitespace-nowrap w-full text-center"
+        style="font-size: clamp(1.2rem, 5vw, 3rem);"
+        data-hiragana-calc-target="question">
+      <%= @question[:text] %> ＝ ？
+    </h2>
+  </div>
+
+  <%# 4択ボタン %>
+  <div class="max-w-lg w-full grid grid-cols-2 gap-4"
+       data-hiragana-calc-target="choices">
+    <% @question[:choices].each do |choice| %>
+      <button class="btn btn-outline btn-lg text-2xl font-bold h-24"
+              data-action="click->game#selectAnswer"
+              data-choice="<%= choice %>">
+        <%= choice %>
+      </button>
+    <% end %>
+  </div>
+</div>

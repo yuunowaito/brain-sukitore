@@ -13,6 +13,7 @@ class GamesController < ApplicationController
 
   def play
     @game_type = GameType.find(params[:id])
+    session[:color_janken] = {}
     @question = GENERATORS[@game_type.name].generate
     session[:score] = 0
     session[:game_type] = @game_type.name
@@ -27,7 +28,10 @@ class GamesController < ApplicationController
     end
     session[:score] = (session[:score] || 0) + 1 if correct
 
-    @question = GENERATORS[session[:game_type]].generate
+    previous_hand = session.dig("color_janken", "previous_hand")
+    @question = GENERATORS[session[:game_type]].generate(previous_hand)
+    session[:color_janken][:previous_hand] = @question[:hand] if session[:game_type] == "color_janken"
+
     render json: {
       correct: correct,
       score: session[:score] || 0,
@@ -48,7 +52,7 @@ class GamesController < ApplicationController
     Score.create!(
       user: current_user,
       game_type: game_type,
-      score: @score,  # ← ここで使う
+      score: @score,
       played_on: Time.current.in_time_zone("Tokyo").to_date
     )
   end
