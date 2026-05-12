@@ -1,7 +1,7 @@
 class QuestionGenerator
   OPERATORS = [ "たす", "ひく" ].freeze
 
-  def self.generate
+  def self.generate(previous_hand = nil)
     loop do
       count   = [ 3, 4 ].sample
       numbers = Array.new(count) { rand(1..9) }

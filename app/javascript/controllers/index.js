@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import ColorJankenController from "./color_janken_controller"
+application.register("color-janken", ColorJankenController)
+
 import GameController from "./game_controller"
 application.register("game", GameController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HiraganaCalcController from "./hiragana_calc_controller"
+application.register("hiragana-calc", HiraganaCalcController)
