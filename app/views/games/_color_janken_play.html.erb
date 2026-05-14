@@ -2,7 +2,15 @@
      style="min-height: calc(100vh - 60px);"
      data-controller="color-janken"
      data-action="game:questionUpdated@window->color-janken#gameQuestionUpdated"
-     data-color-janken-answer-value="<%= @question[:answer] %>">
+     data-color-janken-answer-value="<%= @question[:answer] %>"
+     data-color-janken-images-value="<%= {
+       'rock_blue'     => asset_path('rock_blue.svg'),
+       'rock_red'      => asset_path('rock_red.svg'),
+       'scissors_blue' => asset_path('scissors_blue.svg'),
+       'scissors_red'  => asset_path('scissors_red.svg'),
+       'paper_blue'    => asset_path('paper_blue.svg'),
+       'paper_red'     => asset_path('paper_red.svg')
+     }.to_json %>">
 
   <%# 問題画像 %>
   <div class="text-center mb-12">
