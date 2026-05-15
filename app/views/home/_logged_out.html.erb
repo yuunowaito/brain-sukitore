@@ -110,6 +110,29 @@
       </div>
     <% end %>
 
+    <%# 色じゃんけんカード（仮） %>
+<%= link_to game_path(GameType.find_by(name: "color_janken")), class: "card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group mt-4" do %>
+  <div class="card-body flex-row items-center gap-4">
+    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
+      <span class="text-3xl">✊</span>
+    </div>
+    <div class="flex-1 min-w-0">
+      <h3 class="card-title text-lg">色じゃんけん</h3>
+      <p class="text-sm text-base-content/60 mt-1">
+        青い手には勝つ手を、赤い手には負ける手を出そう。<br>
+        30秒で何問解けるか挑戦！
+      </p>
+      <div class="flex gap-2 mt-2">
+        <div class="badge badge-outline badge-sm">初級〜上級</div>
+        <div class="badge badge-outline badge-sm">30秒</div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30 group-hover:text-secondary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </div>
+<% end %>
+
     <%# Coming soon カード %>
     <div class="card bg-base-100 shadow-sm opacity-50 mt-4">
       <div class="card-body flex-row items-center gap-4">

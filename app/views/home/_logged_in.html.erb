@@ -3,17 +3,21 @@
   <p class="text-base-content/60 mb-8">今日も脳トレをはじめよう</p>
 
   <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8">
-  <div class="card-body items-center text-center">
-    <h2 class="card-title">ベストスコア</h2>
-    <% if @best_score && @best_score > 0 %>
-      <p class="text-4xl font-bold text-primary"><%= @best_score %></p>
-      <p class="text-sm text-base-content/50">問正解</p>
-    <% else %>
-      <p class="text-4xl font-bold text-primary">-</p>
-      <p class="text-sm text-base-content/50">まだプレイ記録がありません</p>
-    <% end %>
+    <div class="card-body">
+      <h2 class="card-title justify-center mb-2">ベストスコア</h2>
+      <% if @best_scores&.any? { |b| b[:score] > 0 } %>
+        <% @best_scores.each do |best_score| %>
+          <div class="flex justify-between items-center py-2 border-b border-base-300 last:border-0">
+            <span class="text-sm text-base-content/60"><%= best_score[:name] %></span>
+            <span class="text-xl font-bold text-primary"><%= best_score[:score] %>問</span>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-center text-base-content/50 text-sm">まだプレイ記録がありません</p>
+      <% end %>
+    </div>
   </div>
-</div>
 
-  <%= link_to "プレイする", game_path(@today_game), class: "btn btn-primary btn-lg" %>
+  <%= link_to "ひらがな計算", game_path(@today_game), class: "btn btn-primary btn-lg mb-4" %>
+  <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg" %>
 </div>
