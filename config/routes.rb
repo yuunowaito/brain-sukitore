@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "privacy_policy", to: "pages#privacy_policy"
+  get "terms_of_service", to: "pages#terms_of_service"
   resources :games, only: [ :show ] do
     member do
       get :play
