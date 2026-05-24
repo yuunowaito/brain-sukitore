@@ -1,0 +1,39 @@
+<div class="flex items-center justify-center py-12 px-4">
+  <div class="max-w-md w-full bg-base-100 rounded-lg shadow-md p-8">
+    <h2 class="text-2xl font-bold text-center mb-2">
+      メールアドレスの登録
+    </h2>
+    <p class="text-sm text-base-content/60 text-center mb-6">
+      LINEからメールアドレスを取得できませんでした。<br>
+      ご利用のメールアドレスを入力してください。
+    </p>
+
+    <% if flash[:alert].present? %>
+      <div class="mb-4 alert alert-error text-sm">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <% line_name = @auth_data&.dig("info", "name") %>
+    <% if line_name.present? %>
+      <p class="text-sm mb-4">
+        LINEアカウント名: <strong><%= line_name %></strong>
+      </p>
+    <% end %>
+
+    <%= form_with url: line_complete_path, method: :post do |f| %>
+      <div class="mb-4">
+        <%= f.label "user[email]", "メールアドレス", class: "block text-sm font-medium mb-1" %>
+        <%= f.email_field "user[email]",
+            autofocus: true,
+            autocomplete: "email",
+            required: true,
+            class: "input input-bordered w-full" %>
+      </div>
+
+      <%= f.submit "メールアドレスを登録してログイン",
+          class: "btn w-full text-white",
+          style: "background-color: #06C755;" %>
+    <% end %>
+  </div>
+</div>
