@@ -16,6 +16,15 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  devise_scope :user do
+    get  "users/auth/line/email_setup",
+         to: "users/omniauth_callbacks#line_email_setup",
+         as: :line_email_setup
+    post "users/auth/line/complete",
+         to: "users/omniauth_callbacks#line_complete",
+         as: :line_complete
+  end
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
