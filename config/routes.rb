@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     post "users/auth/line/complete",
          to: "users/omniauth_callbacks#line_complete",
          as: :line_complete
+    delete "users/avatar",
+       to: "users/registrations#destroy_avatar",
+       as: :destroy_user_avatar
   end
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

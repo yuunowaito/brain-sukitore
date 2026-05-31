@@ -25,5 +25,6 @@ module Myapp
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
     Rails.autoloaders.main.ignore(Rails.root.join("lib/omniauth"))
+    config.active_storage.variant_processor = :vips
   end
 end
