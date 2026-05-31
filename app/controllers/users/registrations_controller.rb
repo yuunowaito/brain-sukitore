@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  include ImageProcessable
+
   before_action :configure_sign_up_params, only: [ :create ]
   before_action :configure_account_update_params, only: [ :update ]
 
@@ -10,11 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.build_profile
     respond_with resource
   end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
 
   # GET /resource/edit
   def edit
@@ -26,24 +23,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path
   end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+  def destroy_avatar
+    current_user.profile.avatar.purge
+    redirect_to edit_user_registration_path, notice: "プロフィール画像を削除しました"
+  end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
+  def update
+    super do |resource|
+      if resource.errors.empty? && params[:user][:profile_attributes][:avatar].present?
+        begin
+          processed = process_and_transform_image(
+            params[:user][:profile_attributes][:avatar], 200
+          )
+          resource.profile.avatar.attach(processed)
+        rescue ImageProcessable::ImageProcessingError => e
+          flash.now[:alert] = e.message
+          render :edit, status: :unprocessable_content and return
+        end
+      end
+    end
+  end
 
   protected
 
@@ -52,26 +51,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [ profile_attributes: [ :name, :id ] ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [ profile_attributes: [ :name, :id, :avatar ] ])
   end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
 end

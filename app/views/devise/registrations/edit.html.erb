@@ -12,8 +12,20 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <%# 名前 %>
         <%= f.fields_for :profile do |profile_form| %>
+          <%# プロフィール画像 %>
+          <div class="form-control gap-1 mb-4">
+            <%= profile_form.label :avatar, "プロフィール画像", class: "label-text font-medium" %>
+            <% if resource.profile&.avatar&.attached? && resource.profile.avatar.persisted?  %>
+              <div class="mb-2 flex items-center gap-2">
+                <%= image_tag resource.profile.avatar, class: "w-16 h-16 rounded-full object-cover" %>
+              </div>
+            <% end %>
+            <%= profile_form.file_field :avatar, class: "file-input file-input-bordered w-full",
+                accept: "image/jpeg,image/png,image/gif,image/webp" %>
+          </div>
+
+          <%# 名前 %>
           <div class="form-control gap-1 mb-4">
             <%= profile_form.label :name, class: "label-text font-medium" %>
             <%= profile_form.text_field :name, class: "input input-bordered w-full" %>
@@ -60,6 +72,16 @@
         <%# 更新ボタン %>
         <%= f.submit t("helpers.submit.update"), class: "btn btn-primary w-full" %>
 
+      <% end %>
+
+      <%# 画像削除ボタン %>
+      <% if resource.profile&.avatar&.attached? && resource.profile.avatar.persisted? %>
+        <div class="mb-4">
+          <%= button_to "画像を削除", destroy_user_avatar_path,
+              data: { turbo_confirm: "プロフィール画像を削除しますか？" },
+              method: :delete,
+              class: "btn btn-error btn-sm btn-outline w-full" %>
+        </div>
       <% end %>
 
       <%# アカウント削除 %>
