@@ -2,10 +2,10 @@ class ColorGridGenerator
   GRID_SIZE = 16
 
   def self.generate(target_count: 3)
-    target_count = [target_count, 5].min
+    target_count = [ target_count, 5 ].min
     sample = random_cells(target_count)
     answer = generate_answer(sample, target_count)
-    { sample: sample, answer: answer}
+    { sample: sample, answer: answer }
   end
 
   def self.random_cells(count)

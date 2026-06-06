@@ -64,7 +64,7 @@ class GamesController < ApplicationController
 
   def color_grid_complete
     game_type    = GameType.find_by!(name: "color_grid")
-    target_count = [[params[:target_count].to_i, 3].max, 5].min
+    target_count = [ [ params[:target_count].to_i, 3 ].max, 5 ].min
 
     result = ColorGridGenerator.generate(target_count: target_count)
 
