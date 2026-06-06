@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection do
       post :answer
       get  :result
+      get  :color_grid
+      post :color_grid_complete
     end
   end
 

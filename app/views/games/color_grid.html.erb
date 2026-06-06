@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10 px-4"
+     data-controller="game color-grid"
+     data-game-duration-value="30"
+     data-color-grid-sample-value="<%= @sample_grid %>"
+     data-color-grid-answer-value="<%= @answer_grid %>"
+     data-action="color-grid:error->game#gameError
+                  color-grid:solved->game#colorGridSolved">
+  <%# 上部エラーバナー %>
+  <div data-game-target="errorBanner"
+      class="fixed top-0 left-0 w-full h-2 opacity-0 bg-error transition-opacity duration-300">
+  </div>
+  <%# スコアとタイマー %>
+  <div class="flex justify-between items-center py-4">
+    <div class="badge badge-primary badge-lg gap-1">
+      スコア: <span data-game-target="score">0</span>
+    </div>
+    <div class="badge badge-outline badge-lg gap-1">
+      ⏱ <span data-game-target="timer">30</span> 秒
+    </div>
+  </div>
+  <%# 2グリッド並列 %>
+  <div class="flex gap-8 justify-center">
+    <%# 見本グリッド %>
+    <div>
+      <p class="text-center mb-2">見本</p>
+      <div data-color-grid-target="sampleGrid"
+           class="grid grid-cols-4 border border-base-content/30">
+      </div>
+    </div>
+    <%# 回答グリッド %>
+    <div>
+      <p class="text-center mb-2">回答</p>
+      <div data-color-grid-target="answerGrid"
+           class="grid grid-cols-4 border border-base-content/30">
+      </div>
+    </div>
+  </div>
+</div>
