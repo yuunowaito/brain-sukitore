@@ -4,9 +4,14 @@
   <div class="max-w-lg w-full">
 
     <%= render "#{@game_type.name}_description" %>
-
-    <%= link_to play_game_path(@game_type), class: "btn btn-primary btn-lg w-full text-lg" do %>
-      ▶ スタート
+    <% if @game_type.name == "color_grid" %>
+      <%= link_to color_grid_games_path, class: "btn btn-primary btn-lg w-full text-lg" do %>
+        ▶ スタート
+      <% end %>
+    <% else %>
+      <%= link_to play_game_path(@game_type), class: "btn btn-primary btn-lg w-full text-lg" do %>
+        ▶ スタート
+      <% end %>
     <% end %>
 
   </div>

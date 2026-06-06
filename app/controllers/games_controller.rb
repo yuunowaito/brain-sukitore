@@ -40,9 +40,47 @@ class GamesController < ApplicationController
   end
 
   def result
-    @score = session[:score] || 0
-    @game_type = GameType.find_by(name: session[:game_type])
-    save_score if user_signed_in?
+    if params[:game_type] == "color_grid"
+      @score     = params[:score].to_i
+      @game_type = GameType.find_by(name: "color_grid")
+    else
+      @score     = session[:score] || 0
+      @game_type = GameType.find_by(name: session[:game_type])
+      save_score if user_signed_in?
+    end
+  end
+
+  def color_grid
+  @game_type  = GameType.find_by!(name: "color_grid")
+  @best_score = current_user&.scores
+                  &.where(game_type: @game_type)
+                  &.maximum(:score) || 0
+
+  result       = ColorGridGenerator.generate(target_count: 3)
+  @sample_grid = result[:sample].to_json
+  @answer_grid = result[:answer].to_json
+  end
+
+
+  def color_grid_complete
+    game_type    = GameType.find_by!(name: "color_grid")
+    target_count = [[params[:target_count].to_i, 3].max, 5].min
+
+    result = ColorGridGenerator.generate(target_count: target_count)
+
+    if user_signed_in?
+      current_user.scores.create!(
+        game_type: game_type,
+        score:     params[:score].to_i,
+        played_on: Time.current.in_time_zone("Tokyo").to_date
+      )
+    end
+
+    render json: {
+      score:       params[:score].to_i,
+      next_sample: result[:sample],
+      next_answer: result[:answer]
+    }
   end
 
   private

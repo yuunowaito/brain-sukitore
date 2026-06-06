@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["timer", "score"]
+  static targets = ["timer", "score", "errorBanner"]
   static values = { answer: String, score: Number }
 
   connect() {
@@ -51,6 +51,29 @@ export default class extends Controller {
     }
   }
   finish() {
-    window.location.href = `/games/result?score=${this.scoreValue}`
+    const isColorGrid = this.element.dataset.controller.includes("color-grid")
+    if (isColorGrid) {
+      window.location.href = `/games/result?score=${this.scoreValue}&game_type=color_grid`
+    } else {
+      window.location.href = `/games/result?score=${this.scoreValue}`
+    }
+  }
+
+  gameError(event) {
+    this.flashBanner()
+  }
+
+  flashBanner() {
+    this.errorBannerTarget.classList.remove("opacity-0")
+    this.errorBannerTarget.classList.add("opacity-100")
+    setTimeout(() => {
+      this.errorBannerTarget.classList.remove("opacity-100")
+      this.errorBannerTarget.classList.add("opacity-0")
+    }, 300)
+  }
+
+  colorGridSolved(event) {
+    this.scoreValue = event.detail.score
+    this.scoreTarget.textContent = event.detail.score
   }
 }

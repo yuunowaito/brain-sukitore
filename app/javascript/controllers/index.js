@@ -15,3 +15,6 @@ application.register("hello", HelloController)
 
 import HiraganaCalcController from "./hiragana_calc_controller"
 application.register("hiragana-calc", HiraganaCalcController)
+
+import ColorGridController from "./color_grid_controller"
+application.register("color-grid", ColorGridController)
