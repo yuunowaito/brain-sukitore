@@ -18,6 +18,35 @@
     </div>
   </div>
 
+  <%# グラフ %>
+  <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8"
+      data-controller="score-chart"
+      data-score-chart-chart-json-value="<%= @chart_data.to_json %>">
+    <div class="card-body">
+      <h2 class="card-title justify-center mb-2">スコア推移</h2>
+
+      <%# タブ %>
+      <div class="flex gap-2 mb-4">
+        <% @chart_data.keys.each_with_index do |name, i| %>
+          <button data-action="click->score-chart#switchTab"
+                  data-game="<%= name %>"
+                  class="btn btn-sm <%= i == 0 ? 'btn-primary' : 'btn-ghost' %>">
+            <%= name %>
+          </button>
+        <% end %>
+      </div>
+
+      <%# グラフ %>
+      <div style="height: 200px;">
+        <canvas data-score-chart-target="canvas"></canvas>
+      </div>
+
+      <%# 凡例 %>
+      <p class="text-sm text-center mt-2 text-base-content/60"
+        data-score-chart-target="legendText"></p>
+    </div>
+  </div>
+
   <%= link_to "ひらがな計算", game_path(@today_game), class: "btn btn-primary btn-lg mb-4" %>
   <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg" %>
 </div>

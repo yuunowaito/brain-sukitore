@@ -18,3 +18,7 @@ application.register("hiragana-calc", HiraganaCalcController)
 
 import ColorGridController from "./color_grid_controller"
 application.register("color-grid", ColorGridController)
+
+import ScoreChartController from "./score_chart_controller"
+application.register("score-chart", ScoreChartController)
+
