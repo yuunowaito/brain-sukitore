@@ -14,7 +14,6 @@ export default class extends Controller {
   connect() {
     this.isProcessing  = false// 処理中フラグをfalseで初期化
     this.correctStreak = 0// 連続正解数を0で初期化
-    this.audioCtx      = null// 音声をまだ使わないのでnullで初期化
     this.renderGrids()// グリッドを描画するメソッドを呼ぶ
   }
 
@@ -56,7 +55,6 @@ export default class extends Controller {
 
    selectCell(event) {
     if (this.isProcessing) return
-    this.initAudio()
 
     const cell     = event.currentTarget
     const index    = parseInt(cell.dataset.index)
@@ -74,7 +72,6 @@ export default class extends Controller {
     const isCorrectDir = this.sampleValue.includes(index) === newValue
     if (!isCorrectDir) {
       this.dispatch("error", { bubbles: true })
-      this.playErrorSound()  // ← 音をエラー時に鳴らす記述
       return
     }
 
@@ -132,18 +129,4 @@ export default class extends Controller {
     this.isProcessing = true
   }
 
-  initAudio() {
-    if (!this.audioCtx) {
-      this.audioCtx = new AudioContext()
-    }
-  }
-
-  playErrorSound() {
-    const osc = this.audioCtx.createOscillator()
-    osc.type = "square"
-    osc.frequency.value = 220
-    osc.connect(this.audioCtx.destination)
-    osc.start()
-    osc.stop(this.audioCtx.currentTime + 0.15)
-  }
 }
