@@ -48,6 +48,8 @@ export default class extends Controller {
         bubbles: true,
         cancelable: false
       })
+    } else {
+      this.gameError()
     }
   }
   finish() {
@@ -61,6 +63,17 @@ export default class extends Controller {
 
   gameError(event) {
     this.flashBanner()
+    this.playErrorSound()
+  }
+
+  playErrorSound() {
+    const ctx = new AudioContext()
+    const osc = ctx.createOscillator()
+    osc.type = "square"
+    osc.frequency.value = 220
+    osc.connect(ctx.destination)
+    osc.start()
+    osc.stop(ctx.currentTime + 0.15)
   }
 
   flashBanner() {

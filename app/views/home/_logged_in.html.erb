@@ -48,5 +48,6 @@
   </div>
 
   <%= link_to "ひらがな計算", game_path(@today_game), class: "btn btn-primary btn-lg mb-4" %>
-  <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg" %>
+  <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg mb-4" %>
+  <%= link_to "色マス記憶", game_path(GameType.find_by(name: "color_grid")), class: "btn btn-accent btn-lg" %>
 </div>

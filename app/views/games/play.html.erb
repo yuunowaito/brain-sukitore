@@ -4,6 +4,11 @@
      data-controller="game"
      data-game-answer-value="<%= @question[:answer] %>">
 
+  <%# 上部エラーバナー %>
+  <div data-game-target="errorBanner"
+       class="fixed top-0 left-0 w-full h-2 opacity-0 bg-error transition-opacity duration-300">
+  </div>
+
   <%# スコアとタイマー %>
   <div class="flex justify-between items-center py-4">
     <div class="badge badge-primary badge-lg gap-1">
