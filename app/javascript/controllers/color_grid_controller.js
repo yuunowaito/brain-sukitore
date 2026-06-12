@@ -27,10 +27,8 @@ export default class extends Controller {
     grid.innerHTML = ""
     for (let i = 0; i < this.GRID_SIZE; i++) {
       const cell = document.createElement("div")
-      cell.classList.add("w-12", "h-12", "border", "border-base-content/30")
-      if (this.sampleValue.includes(i)) {
-        cell.classList.add("bg-warning")
-      }
+      cell.classList.add("w-12", "h-12")
+      cell.classList.add(this.sampleValue.includes(i) ? "bg-warning" : "bg-base-100")
       grid.appendChild(cell)
     }
   }
@@ -43,12 +41,10 @@ export default class extends Controller {
       cell.dataset.index  = i
       cell.dataset.action = "click->color-grid#selectCell"
       cell.classList.add(
-        "w-12", "h-12", "border", "border-base-content/30",
+        "w-12", "h-12",
         "cursor-pointer", "transition-colors", "duration-150"
       )
-      if (this.answerValue.includes(i)) {
-        cell.classList.add("bg-primary")
-      }
+      cell.classList.add(this.answerValue.includes(i) ? "bg-primary" : "bg-base-100")
       grid.appendChild(cell)
     }
   }
@@ -62,6 +58,7 @@ export default class extends Controller {
     const newValue = !isOn
 
     cell.classList.toggle("bg-primary", newValue)
+    cell.classList.toggle("bg-base-100", !newValue)
 
     if (newValue) {
       this.answerValue = [...this.answerValue, index]
