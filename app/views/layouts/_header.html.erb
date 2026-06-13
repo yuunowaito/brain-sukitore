@@ -7,9 +7,12 @@
 
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><%= link_to "脳トレを選ぶ", "#" %></li>
-      <li><%= link_to "スコア履歴", "#" %></li>
-      <li><%= link_to "使い方", "#" %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "脳トレを選ぶ", root_path %></li>
+      <% else %>
+        <li><%= link_to "脳トレを選ぶ", "#{root_path}#games" %></li>
+        <li><%= link_to "使い方", "#{root_path}#how-to" %></li>
+      <% end %>
     </ul>
   </div>
 
