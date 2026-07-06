@@ -29,12 +29,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
+    avatar = params.dig(:user, :profile_attributes, :avatar)
+
+    if avatar.present? && !image_size_valid?(avatar)
+      self.resource = current_user
+      resource.profile || resource.build_profile
+      flash.now[:alert] = "画像サイズは2MB以下にしてください"
+      return render :edit, status: :unprocessable_content
+    end
+
     super do |resource|
-      if resource.errors.empty? && params[:user][:profile_attributes][:avatar].present?
+      if resource.errors.empty? && avatar.present?
         begin
-          processed = process_and_transform_image(
-            params[:user][:profile_attributes][:avatar], 200
-          )
+          processed = process_and_transform_image(avatar, 200)
           resource.profile.avatar.attach(processed)
         rescue ImageProcessable::ImageProcessingError => e
           flash.now[:alert] = e.message

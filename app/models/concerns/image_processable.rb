@@ -2,6 +2,12 @@ module ImageProcessable
   # エラーの出力を行いたいのでStandardErrorクラスをImageProcessingErrorクラスに継承
   class ImageProcessingError < StandardError; end
 
+  MAX_IMAGE_SIZE = 2.megabytes
+
+  def image_size_valid?(image_io)
+    image_io.size <= MAX_IMAGE_SIZE
+  end
+
   # 画像処理メソッド。image_ioにはparams[:post][:image]の中の一時ファイルを渡す
   # widthには横幅の最大値を渡す
   def process_and_transform_image(image_io, width)
