@@ -81,16 +81,17 @@ RSpec.describe "Games", type: :request do
   end
 
   describe "POST /games/color_grid_complete" do
-    it "スコアが保存されJSONを返す" do
+    it "スコアを保存せず、次の問題のJSONを返す" do
       user = create(:user)
       sign_in user
       create(:game_type, name: "color_grid")
 
-      post color_grid_complete_games_path,
-        params: { score: 3, target_count: 3 }, as: :json
+      expect {
+        post color_grid_complete_games_path,
+          params: { score: 3, target_count: 3 }, as: :json
+      }.not_to change(Score, :count)
 
       expect(response).to have_http_status(:ok)
-      expect(Score.count).to eq(1)
       json = JSON.parse(response.body)
       expect(json).to have_key("next_sample")
       expect(json).to have_key("next_answer")

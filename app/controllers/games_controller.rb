@@ -46,8 +46,9 @@ class GamesController < ApplicationController
     else
       @score     = session[:score] || 0
       @game_type = GameType.find_by(name: session[:game_type])
-      save_score if user_signed_in?
     end
+
+    save_score if user_signed_in?
   end
 
   def color_grid
@@ -63,18 +64,10 @@ class GamesController < ApplicationController
 
 
   def color_grid_complete
-    game_type    = GameType.find_by!(name: "color_grid")
     target_count = [ [ params[:target_count].to_i, 3 ].max, 5 ].min
 
     result = ColorGridGenerator.generate(target_count: target_count)
 
-    if user_signed_in?
-      current_user.scores.create!(
-        game_type: game_type,
-        score:     params[:score].to_i,
-        played_on: Time.current.in_time_zone("Tokyo").to_date
-      )
-    end
 
     render json: {
       score:       params[:score].to_i,
@@ -86,10 +79,9 @@ class GamesController < ApplicationController
   private
 
   def save_score
-    game_type = GameType.find_by!(name: session[:game_type])
     Score.create!(
       user: current_user,
-      game_type: game_type,
+      game_type: @game_type,
       score: @score,
       played_on: Time.current.in_time_zone("Tokyo").to_date
     )
