@@ -20,6 +20,8 @@
 
 [![Image from Gyazo](https://i.gyazo.com/104bfd4d97380bc61389888a453aa049.gif)](https://gyazo.com/104bfd4d97380bc61389888a453aa049)
 
+[![Image from Gyazo](https://i.gyazo.com/74374c9492b8ac024c561023790b265c.gif)](https://gyazo.com/74374c9492b8ac024c561023790b265c)
+
 
 🔗 デプロイURL: https://brain-sukitore.com
 
