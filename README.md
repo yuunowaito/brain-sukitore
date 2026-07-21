@@ -36,13 +36,13 @@
 
 | ユーザー登録 / ログイン |
 | :---: |
-| [![Image from Gyazo](https://i.gyazo.com/3cbef2826b86205ce18236d094a5680c.gif)](https://gyazo.com/3cbef2826b86205ce18236d094a5680c) |
+| <a href="https://gyazo.com/3cbef2826b86205ce18236d094a5680c"><img src="https://i.gyazo.com/3cbef2826b86205ce18236d094a5680c.gif" width="500"></a> |
 | <p align="left">『名前』『メールアドレス』『パスワード』を入力してユーザー登録を行います。また、Google・LINEアカウントを用いたログインも可能です。</p> |
 <br>
 
 | ひらがな計算 |
 | :---: |
-| [![Image from Gyazo](https://i.gyazo.com/3df791f6ec114df9dc39c2532e864fec.gif)](https://gyazo.com/3df791f6ec114df9dc39c2532e864fec)|
+| <a href="https://gyazo.com/3df791f6ec114df9dc39c2532e864fec"><img src="https://i.gyazo.com/3df791f6ec114df9dc39c2532e864fec.gif" width="500"></a> |
 | <p align="left">表示された計算問題に、制限時間内で答えていくゲームです。</p> |
 <br>
 
