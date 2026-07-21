@@ -68,52 +68,16 @@
 
 ## 使用技術
 
-|
- カテゴリ 
-|
- 技術内容 
-|
-|
----
-|
----
-|
-|
- サーバーサイド 
-|
- Ruby on Rails 7.2.3・Ruby 
-|
-|
- フロントエンド 
-|
- Hotwire（Turbo・Stimulus）・Tailwind CSS・DaisyUI・Chart.js 
-|
-|
- 認証 
-|
- Devise・OmniAuth（Google・LINE） 
-|
-|
- 画像処理 
-|
- Active Storage・Cloudinary・libvips 
-|
-|
- データベース 
-|
- PostgreSQL 
-|
-|
- インフラ 
-|
- Docker（開発環境）・Render（本番） 
-|
-|
- テスト・CI 
-|
- RSpec・GitHub Actions（RuboCop・Brakeman・RSpec） 
-|
+## 使用技術
+| カテゴリ | 技術内容 |
+| --- | --- |
+| サーバーサイド | Ruby on Rails 7.2.3・Ruby |
+| フロントエンド | Hotwire（Turbo・Stimulus）・Tailwind CSS・DaisyUI・Chart.js |
+| 認証 | Devise・OmniAuth（Google・LINE） |
+| 画像処理 | Active Storage・Cloudinary・libvips |
+| データベース | PostgreSQL |
+| インフラ | Docker（開発環境）・Render（本番） |
+| テスト・CI | RSpec・GitHub Actions（RuboCop・Brakeman・RSpec） |
 <br>
-
 ## テーブル構成
 （ここにER図の画像、または説明文）
