@@ -34,34 +34,45 @@
 
 # 💻 機能紹介
 
-| ユーザー登録 / ログイン |
-| :---: |
-| <a href="https://gyazo.com/3cbef2826b86205ce18236d094a5680c"><img src="https://i.gyazo.com/3cbef2826b86205ce18236d094a5680c.gif" width="500"></a> |
-| <p align="left">『名前』『メールアドレス』『パスワード』を入力してユーザー登録を行います。また、Google・LINEアカウントを用いたログインも可能です。</p> |
+### ユーザー登録 / ログイン
+
+<p align="center">
+  <a href="https://gyazo.com/3cbef2826b86205ce18236d094a5680c"><img src="https://i.gyazo.com/3cbef2826b86205ce18236d094a5680c.gif" width="600"></a>
+</p>
+
+<p align="left">『名前』『メールアドレス』『パスワード』を入力してユーザー登録を行います。また、Google・LINEアカウントを用いたログインも可能です。</p>
 <br>
 
-| ひらがな計算 |
-| :---: |
-| <a href="https://gyazo.com/3df791f6ec114df9dc39c2532e864fec"><img src="https://i.gyazo.com/3df791f6ec114df9dc39c2532e864fec.gif" width="500"></a> |
-| <p align="left">ひらがなで出題される計算問題（例：「いち たす に」）に対して、4つの選択肢の中から正しい答えを制限時間内で選んでいくゲームです。とっさの計算力と読解力を同時に鍛えられます。</p> |
+### ひらがな計算
+<p align="center">
+  <a href="https://gyazo.com/3df791f6ec114df9dc39c2532e864fec"><img src="https://i.gyazo.com/3df791f6ec114df9dc39c2532e864fec.gif" width="600"></a>
+</p>
+
+<p align="left">ひらがなで出題される計算問題（例：「いち たす に」）に対して、4つの選択肢の中から正しい答えを制限時間内で選んでいくゲームです。とっさの計算力と読解力を同時に鍛えられます。</p>
 <br>
 
-| 色じゃんけん |
-| :---: |
-| [![Image from Gyazo](https://i.gyazo.com/ここにID.gif)](https://gyazo.com/ここにID) |
-|  |
+### 色じゃんけん
+<p align="center">
+  <a href="https://gyazo.com/d66808db7e4ffff0b626b5d343bbdcda"><img src="https://i.gyazo.com/d66808db7e4ffff0b626b5d343bbdcda.gif" width="600"></a>
+</p>
+
+<p align="left">制限時間内に、青い手が表示されたら「勝つ手」を、赤い手が表示されたら「負ける手」を3択の中から選んでいくゲームです。瞬時の判断力と、瞬発力を鍛えられます。</p>
 <br>
 
-| 色マス記憶 |
-| :---: |
-| [![Image from Gyazo](https://i.gyazo.com/ここにID.gif)](https://gyazo.com/ここにID) |
-| <p align="left">一瞬表示されるマスの位置を記憶し、同じ位置を再現するゲームです。</p> |
+### 色マス記憶
+<p align="center">
+  <a href="https://gyazo.com/de908f1ac94cfaf4e70a024e3d7170a0"><img src="https://i.gyazo.com/de908f1ac94cfaf4e70a024e3d7170a0.gif" width="600"></a>
+</p>
+
+<p align="left">制限時間内に、左側に表示されている見本のマスと同じ位置を、右側のグリッドでクリックして再現する脳トレです。瞬間的な記憶力と集中力を鍛えられます。</p>
 <br>
 
-| スコア推移グラフ |
-| :---: |
-| [![Image from Gyazo](https://i.gyazo.com/ここにID.gif)](https://gyazo.com/ここにID) |
-| <p align="left">ゲームごとのスコア推移をグラフで確認できます。タブを切り替えることで、各ゲームの成長を可視化できます。</p> |
+### スコア推移グラフ
+<p align="center">
+  <a href="https://gyazo.com/2372ab73bd2d6b37f1158848cb8f1a7f"><img src="https://i.gyazo.com/2372ab73bd2d6b37f1158848cb8f1a7f.gif" width="600"></a>
+</p>
+
+<p align="left">ゲームごとのハイスコアとスコアの推移をグラフで確認できます。タブを切り替えることで、脳トレごとの成長を可視化できます。</p>
 <br>
 
 # 🔧 技術構成について
@@ -79,4 +90,4 @@
 <br>
 
 ## テーブル構成
-（ここにER図の画像、または説明文）
+[![Image from Gyazo](https://i.gyazo.com/afbf76c4bf3154972b08e50868d457f9.png)](https://gyazo.com/afbf76c4bf3154972b08e50868d457f9)
