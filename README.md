@@ -11,7 +11,7 @@
 - ✊ 色じゃんけん（抑制力）
 - 🟩 色マス記憶（空間認識）
 
-[![Image from Gyazo](https://i.gyazo.com/5bcd21f2b2c68bd1865421ac014d5edf.gif)](https://gyazo.com/5bcd21f2b2c68bd1865421ac014d5edf)
+[![Image from Gyazo](https://i.gyazo.com/b1a25931d67c510bd3c42548ee0d3907.gif)](https://gyazo.com/b1a25931d67c510bd3c42548ee0d3907)
 
 🔗 デプロイURL: https://brain-sukitore.com
 
