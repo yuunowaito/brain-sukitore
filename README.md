@@ -36,7 +36,7 @@
 
 | ユーザー登録 / ログイン |
 | :---: |
-| [![Image from Gyazo](https://i.gyazo.com/ここにID.gif)](https://gyazo.com/ここにID) |
+| [![Image from Gyazo](https://i.gyazo.com/3cbef2826b86205ce18236d094a5680c.gif)](https://gyazo.com/3cbef2826b86205ce18236d094a5680c) |
 | <p align="left">『名前』『メールアドレス』『パスワード』を入力してユーザー登録を行います。また、Google・LINEアカウントを用いたログインも可能です。</p> |
 <br>
 
@@ -67,8 +67,6 @@
 # 🔧 技術構成について
 
 ## 使用技術
-
-## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- |
 | サーバーサイド | Ruby on Rails 7.2.3・Ruby |
@@ -79,5 +77,6 @@
 | インフラ | Docker（開発環境）・Render（本番） |
 | テスト・CI | RSpec・GitHub Actions（RuboCop・Brakeman・RSpec） |
 <br>
+
 ## テーブル構成
 （ここにER図の画像、または説明文）
