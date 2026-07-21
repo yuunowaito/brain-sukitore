@@ -42,7 +42,7 @@
 
 | ひらがな計算 |
 | :---: |
-| [![Image from Gyazo](https://i.gyazo.com/ここにID.gif)](https://gyazo.com/ここにID) |
+| [![Image from Gyazo](https://i.gyazo.com/3df791f6ec114df9dc39c2532e864fec.gif)](https://gyazo.com/3df791f6ec114df9dc39c2532e864fec)|
 | <p align="left">表示された計算問題に、制限時間内で答えていくゲームです。</p> |
 <br>
 
