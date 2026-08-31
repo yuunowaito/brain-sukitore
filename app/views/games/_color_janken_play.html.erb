@@ -14,7 +14,7 @@
 
   <%# 問題画像 %>
   <div class="text-center mb-12">
-    <p class="text-base-content/50 text-sm mb-4">
+    <p class="text-base-content text-sm mb-4">
       <%= @question[:color] == "blue" ? "勝つ手を出せ！" : "負ける手を出せ！" %>
     </p>
     <%= image_tag "#{@question[:hand]}_#{@question[:color]}.svg", width: 150,

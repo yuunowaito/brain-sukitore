@@ -9,7 +9,7 @@
       <div class="card-body items-center text-center">
         <h2 class="card-title">今回のスコア</h2>
         <p class="text-5xl font-bold text-primary"><%= @score %></p>
-        <p class="text-sm text-base-content/50">問正解</p>
+        <p class="text-sm text-base-content">問正解</p>
       </div>
     </div>
 
@@ -20,10 +20,10 @@
       <% if user_signed_in? %>
         <% current_best = @best_scores.find { |b| b[:name] == @game_type.display_name } %>
           <p class="text-4xl font-bold text-primary"><%= current_best[:score] %></p>
-          <p class="text-sm text-base-content/50">問正解</p>
+          <p class="text-sm text-base-content">問正解</p>
       <% else %>
         <p class="text-4xl font-bold text-primary">-</p>
-        <p class="text-sm text-base-content/50">ログインするとスコアが記録されます</p>
+        <p class="text-sm text-base-content">ログインするとスコアが記録されます</p>
         <div class="flex gap-2 justify-center mt-2">
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-sm mt-2" %>
           <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline btn-sm mt-2" %>
