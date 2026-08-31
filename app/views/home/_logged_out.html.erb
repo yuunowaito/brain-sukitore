@@ -4,7 +4,7 @@
 <section class="hero min-h-[70vh] bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10">
   <div class="hero-content text-center flex-col gap-8 py-16 px-4">
     <%# バッジ %>
-    <div class="badge badge-primary badge-outline gap-1 px-3 py-3 text-sm font-medium">
+    <div class="badge badge-primary badge-outline gap-1 h-auto px-4 py-2 text-xl font-medium">
       ✨ 毎日30秒からはじめる脳トレ
     </div>
 
@@ -14,7 +14,7 @@
         あなたの脳を、<br>
         <span class="text-primary">もっと速く</span>鍛えよう。
       </h1>
-      <p class="text-base sm:text-lg text-base-content/60 leading-relaxed">
+      <p class="text-base sm:text-lg text-base-content leading-relaxed">
         ひらがなの計算ゲームで、脳の処理速度をトレーニング。<br class="hidden sm:inline">
         スコアを記録して、成長を実感しよう。
       </p>
@@ -33,7 +33,7 @@
     </div>
 
     <%# サブテキスト %>
-    <p class="text-xs text-base-content/40">登録不要でゲストプレイも可能 · 完全無料</p>
+    <p class="text-lg text-base-content">登録不要でゲストプレイも可能 · 完全無料</p>
   </div>
 </section>
 
@@ -44,7 +44,7 @@
     <h2 class="text-2xl sm:text-3xl font-bold text-center text-base-content mb-2">
       かんたん3ステップ
     </h2>
-    <p class="text-center text-base-content/50 mb-10 text-sm">登録なしでもすぐ遊べます</p>
+    <p class="text-center text-base-content mb-10 text-lg">登録なしでもすぐ遊べます</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
       <div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
@@ -52,7 +52,7 @@
           <div class="badge badge-primary badge-lg">1</div>
           <div class="text-4xl">👀</div>
           <h3 class="card-title text-base">ゲームを選ぶ</h3>
-          <p class="text-sm text-base-content/60">
+          <p class="text-sm text-base-content">
             3種類の脳トレから、好きなものを選んでスタート。
           </p>
         </div>
@@ -63,7 +63,7 @@
           <div class="badge badge-primary badge-lg">2</div>
           <div class="text-4xl">⏱️</div>
           <h3 class="card-title text-base">30秒チャレンジ</h3>
-          <p class="text-sm text-base-content/60">
+          <p class="text-sm text-base-content">
             制限時間内に、できるだけ多く正解しよう。
           </p>
         </div>
@@ -74,14 +74,14 @@
           <div class="badge badge-primary badge-lg">3</div>
           <div class="text-4xl">📈</div>
           <h3 class="card-title text-base">成長をふりかえる</h3>
-          <p class="text-sm text-base-content/60">
+          <p class="text-sm text-base-content">
             スコアをグラフで記録。過去の自分を超えよう。
           </p>
         </div>
       </div>
     </div>
 
-    <p class="text-center text-xs text-base-content/40 mt-8">
+    <p class="text-center text-lg text-base-content mt-8">
       ※スコアの記録とグラフ表示には無料の会員登録が必要です
     </p>
   </div>
@@ -93,7 +93,7 @@
     <h2 class="text-2xl sm:text-3xl font-bold text-center text-base-content mb-2">
       今すぐ遊べる脳トレ
     </h2>
-    <p class="text-center text-base-content/50 mb-10 text-sm">あなたの脳を刺激しよう</p>
+    <p class="text-center text-base-content mb-10 text-lg">あなたの脳を刺激しよう</p>
 
     <%# ゲームカード（将来的に game_types からループ） %>
     <%= link_to game_path(@today_game), class: "card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group" do %>
@@ -103,7 +103,7 @@
         </div>
         <div class="flex-1 min-w-0">
           <h3 class="card-title text-lg">ひらがな計算</h3>
-          <p class="text-sm text-base-content/60 mt-1">
+          <p class="text-sm text-base-content mt-1">
             ひらがなで表された数字の足し算・引き算を解こう。<br>
             30秒で何問解けるか挑戦！
           </p>
@@ -112,7 +112,7 @@
             <div class="badge badge-outline badge-sm">30秒</div>
           </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30 group-hover:text-primary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/50 group-hover:text-primary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </div>
@@ -126,7 +126,7 @@
     </div>
     <div class="flex-1 min-w-0">
       <h3 class="card-title text-lg">色じゃんけん</h3>
-      <p class="text-sm text-base-content/60 mt-1">
+      <p class="text-sm text-base-content mt-1">
         青い手には勝つ手を、赤い手には負ける手を出そう。<br>
         30秒で何問解けるか挑戦！
       </p>
@@ -135,7 +135,7 @@
         <div class="badge badge-outline badge-sm">30秒</div>
       </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30 group-hover:text-secondary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/50 group-hover:text-secondary transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
     </svg>
   </div>
@@ -148,7 +148,7 @@
     </div>
     <div class="flex-1 min-w-0">
       <h3 class="card-title text-lg">色マス記憶</h3>
-      <p class="text-sm text-base-content/60 mt-1">
+      <p class="text-sm text-base-content mt-1">
         見本と同じマス配置を再現しよう。<br>
         30秒で何問解けるか挑戦！
       </p>
@@ -157,24 +157,11 @@
         <div class="badge badge-outline badge-sm">30秒</div>
       </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30 group-hover:text-accent transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/50 group-hover:text-accent transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
     </svg>
   </div>
 <% end %>
-
-    <%# Coming soon カード %>
-    <div class="card bg-base-100 shadow-sm opacity-50 mt-4">
-      <div class="card-body flex-row items-center gap-4">
-        <div class="w-16 h-16 bg-base-200 rounded-2xl flex items-center justify-center flex-shrink-0">
-          <span class="text-3xl">🔒</span>
-        </div>
-        <div>
-          <h3 class="card-title text-lg text-base-content/50">近日公開予定</h3>
-          <p class="text-sm text-base-content/40">新しいゲームを追加予定です。お楽しみに！</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
