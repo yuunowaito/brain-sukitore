@@ -6,9 +6,9 @@
 
   <%# 問題文 %>
   <div class="text-center mb-12 w-full">
-    <p class="text-base-content text-sm mb-4">答えを選んでください</p>
-    <h2 class="font-extrabold text-base-content leading-loose whitespace-nowrap w-full text-center"
-        style="font-size: clamp(1.2rem, 5vw, 3rem);"
+    <p class="text-base-content text-2xl font-bold mb-8">答えを選んでください</p>
+    <h2 class="font-extrabold text-base-content leading-loose w-full text-center"
+        style="font-size: clamp(1.5rem, 6vw, 3rem);"
         data-hiragana-calc-target="question">
       <%= @question[:text] %> ＝ ？
     </h2>
@@ -18,7 +18,7 @@
   <div class="max-w-lg w-full grid grid-cols-2 gap-4"
        data-hiragana-calc-target="choices">
     <% @question[:choices].each do |choice| %>
-      <button class="btn btn-outline btn-lg text-2xl font-bold h-24"
+      <button class="btn btn-outline btn-lg text-3xl font-bold h-28"
               data-action="click->game#selectAnswer"
               data-choice="<%= choice %>">
         <%= choice %>
