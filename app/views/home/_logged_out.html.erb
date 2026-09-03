@@ -1,39 +1,45 @@
 <% content_for :title, "脳を鍛えよう" %>
 
 <%# ===== Hero セクション ===== %>
-<section class="hero min-h-[70vh] bg-gradient-to-br from-primary/10 via-base-100 to-secondary/10">
-  <div class="hero-content text-center flex-col gap-8 py-16 px-4">
-    <%# バッジ %>
-    <div class="badge badge-primary badge-outline gap-1 h-auto px-4 py-2 text-xl font-medium">
-      ✨ 毎日30秒からはじめる脳トレ
-    </div>
+<section class="relative min-h-[75vh] flex items-center bg-base-200 bg-cover bg-center"
+         style="background-image: url('<%= asset_path("hero-desk.jpg") %>');">
+  <%# テキスト視認性のためのオーバーレイ（モバイルは全体を淡く、sm以上は右側だけ） %>
+  <div class="absolute inset-0 bg-base-100/72 sm:bg-transparent sm:bg-gradient-to-l sm:from-base-100/55 sm:via-base-100/15 sm:to-transparent"></div>
 
-    <%# メインコピー %>
-    <div class="max-w-2xl">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-base-content leading-tight mb-4">
-        あなたの脳を、<br>
-        <span class="text-primary">もっと速く</span>鍛えよう。
-      </h1>
-      <p class="text-base sm:text-lg text-base-content leading-relaxed">
-        ひらがなの計算ゲームで、脳の処理速度をトレーニング。<br class="hidden sm:inline">
-        スコアを記録して、成長を実感しよう。
-      </p>
-    </div>
+  <div class="relative w-full max-w-6xl mx-auto px-6 py-16">
+    <div class="flex flex-col items-center gap-8 text-center sm:ml-auto sm:max-w-xl">
+      <%# バッジ %>
+      <div class="badge badge-primary badge-outline gap-1 h-auto px-4 py-2 text-xl font-medium bg-base-100/80">
+        ✨ 毎日30秒からはじめる脳トレ
+      </div>
 
-    <%# CTAボタン %>
-    <div class="flex flex-col sm:flex-row gap-3">
-      <% if user_signed_in? %>
-        <%= link_to "ゲームをはじめる", "#", class: "btn btn-primary btn-lg gap-2" do %>
-          ▶ ゲームをはじめる
+      <%# メインコピー %>
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-base-content leading-tight mb-4">
+          あなたの脳を、<br>
+          <span class="text-primary">もっと速く</span>鍛えよう。
+        </h1>
+        <p class="text-base sm:text-lg text-base-content leading-relaxed">
+          ひらがなの計算ゲームで、脳の処理速度をトレーニング。<br class="hidden sm:inline">
+          スコアを記録して、成長を実感しよう。
+        </p>
+      </div>
+
+      <%# CTAボタン %>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <% if user_signed_in? %>
+          <%= link_to "ゲームをはじめる", "#", class: "btn btn-primary btn-lg gap-2" do %>
+            ▶ ゲームをはじめる
+          <% end %>
+        <% else %>
+          <%= link_to "無料で登録してはじめる", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "まずはゲストで試す", "#games", class: "btn btn-outline btn-lg bg-base-100/80" %>
         <% end %>
-      <% else %>
-        <%= link_to "無料で登録してはじめる", new_user_registration_path, class: "btn btn-primary btn-lg" %>
-        <%= link_to "まずはゲストで試す", "#games", class: "btn btn-outline btn-lg" %>
-      <% end %>
-    </div>
+      </div>
 
-    <%# サブテキスト %>
-    <p class="text-lg text-base-content">登録不要でゲストプレイも可能 · 完全無料</p>
+      <%# サブテキスト %>
+      <p class="text-lg text-base-content font-medium">登録不要でゲストプレイも可能 · 完全無料</p>
+    </div>
   </div>
 </section>
 
