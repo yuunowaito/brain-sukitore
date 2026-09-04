@@ -1,8 +1,8 @@
-<div class="min-h-screen flex flex-col items-center justify-center py-16 px-4">
+<div class="min-h-screen flex flex-col items-center py-12 px-4">
   <h1 class="text-3xl font-bold mb-2">こんにちは、<%= current_user.name %>さん！</h1>
   <p class="text-base-content mb-8">今日も脳トレをはじめよう</p>
 
-  <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8">
+  <div class="card bg-base-100 border border-base-200 shadow-sm w-full max-w-md mb-8">
     <div class="card-body">
       <h2 class="card-title justify-center mb-2">ベストスコア</h2>
       <% if @best_scores&.any? { |b| b[:score] > 0 } %>
@@ -19,18 +19,18 @@
   </div>
 
   <%# グラフ %>
-  <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8"
+  <div class="card bg-base-100 border border-base-200 shadow-sm w-full max-w-md mb-8"
       data-controller="score-chart"
       data-score-chart-chart-json-value="<%= @chart_data.to_json %>">
     <div class="card-body">
       <h2 class="card-title justify-center mb-2">スコア推移</h2>
 
       <%# タブ %>
-      <div class="flex gap-2 mb-4">
+      <div class="flex flex-wrap gap-2 mb-4">
         <% @chart_data.keys.each_with_index do |name, i| %>
           <button data-action="click->score-chart#switchTab"
                   data-game="<%= name %>"
-                  class="btn btn-sm <%= i == 0 ? 'btn-primary' : 'btn-ghost' %>">
+                  class="btn <%= i == 0 ? 'btn-primary' : 'btn-ghost' %>">
             <%= name %>
           </button>
         <% end %>
@@ -47,7 +47,45 @@
     </div>
   </div>
 
-  <%= link_to "ひらがな計算", game_path(@today_game), class: "btn btn-primary btn-lg mb-4" %>
-  <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg mb-4" %>
-  <%= link_to "色マス記憶", game_path(GameType.find_by(name: "color_grid")), class: "btn btn-accent btn-lg" %>
+  <%# ゲーム導線（将来的に game_types からループ） %>
+  <div class="w-full max-w-md flex flex-col gap-3">
+    <%= link_to game_path(@today_game), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-primary/10">
+          <span class="text-3xl">🧮</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">ひらがな計算</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-primary btn-sm">プレイする</span>
+      </div>
+    <% end %>
+
+    <%= link_to game_path(GameType.find_by(name: "color_janken")), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-secondary/10">
+          <span class="text-3xl">✊</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">色じゃんけん</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-secondary btn-sm">プレイする</span>
+      </div>
+    <% end %>
+
+    <%= link_to game_path(GameType.find_by(name: "color_grid")), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-accent/10">
+          <span class="text-3xl">🟩</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">色マス記憶</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-accent btn-sm">プレイする</span>
+      </div>
+    <% end %>
+  </div>
 </div>
