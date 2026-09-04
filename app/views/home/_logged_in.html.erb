@@ -47,7 +47,45 @@
     </div>
   </div>
 
-  <%= link_to "ひらがな計算", game_path(@today_game), class: "btn btn-primary btn-lg mb-4" %>
-  <%= link_to "色じゃんけん", game_path(GameType.find_by(name: "color_janken")), class: "btn btn-secondary btn-lg mb-4" %>
-  <%= link_to "色マス記憶", game_path(GameType.find_by(name: "color_grid")), class: "btn btn-accent btn-lg" %>
+  <%# ゲーム導線（将来的に game_types からループ） %>
+  <div class="w-full max-w-md flex flex-col gap-3">
+    <%= link_to game_path(@today_game), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-primary/10">
+          <span class="text-3xl">🧮</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">ひらがな計算</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-primary btn-sm">プレイする</span>
+      </div>
+    <% end %>
+
+    <%= link_to game_path(GameType.find_by(name: "color_janken")), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-secondary/10">
+          <span class="text-3xl">✊</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">色じゃんけん</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-secondary btn-sm">プレイする</span>
+      </div>
+    <% end %>
+
+    <%= link_to game_path(GameType.find_by(name: "color_grid")), class: "card bg-base-100 border border-base-200 shadow-sm hover:shadow-md transition-shadow" do %>
+      <div class="card-body flex-row items-center gap-4 p-4">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-accent/10">
+          <span class="text-3xl">🟩</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-lg text-base-content">色マス記憶</h3>
+          <p class="text-sm text-base-content/70">今日も挑戦しよう！</p>
+        </div>
+        <span class="btn btn-accent btn-sm">プレイする</span>
+      </div>
+    <% end %>
+  </div>
 </div>
