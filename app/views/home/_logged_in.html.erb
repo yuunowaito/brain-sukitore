@@ -1,8 +1,8 @@
-<div class="min-h-screen flex flex-col items-center justify-center py-16 px-4">
+<div class="min-h-screen flex flex-col items-center py-12 px-4">
   <h1 class="text-3xl font-bold mb-2">こんにちは、<%= current_user.name %>さん！</h1>
   <p class="text-base-content mb-8">今日も脳トレをはじめよう</p>
 
-  <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8">
+  <div class="card bg-base-100 border border-base-200 shadow-sm w-full max-w-md mb-8">
     <div class="card-body">
       <h2 class="card-title justify-center mb-2">ベストスコア</h2>
       <% if @best_scores&.any? { |b| b[:score] > 0 } %>
@@ -19,18 +19,18 @@
   </div>
 
   <%# グラフ %>
-  <div class="card bg-base-200 shadow-md w-full max-w-sm mb-8"
+  <div class="card bg-base-100 border border-base-200 shadow-sm w-full max-w-md mb-8"
       data-controller="score-chart"
       data-score-chart-chart-json-value="<%= @chart_data.to_json %>">
     <div class="card-body">
       <h2 class="card-title justify-center mb-2">スコア推移</h2>
 
       <%# タブ %>
-      <div class="flex gap-2 mb-4">
+      <div class="flex flex-wrap gap-2 mb-4">
         <% @chart_data.keys.each_with_index do |name, i| %>
           <button data-action="click->score-chart#switchTab"
                   data-game="<%= name %>"
-                  class="btn btn-sm <%= i == 0 ? 'btn-primary' : 'btn-ghost' %>">
+                  class="btn <%= i == 0 ? 'btn-primary' : 'btn-ghost' %>">
             <%= name %>
           </button>
         <% end %>
