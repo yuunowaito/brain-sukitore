@@ -7,9 +7,9 @@ class QuestionGenerator
       numbers = Array.new(count) { rand(1..9) }
       operators = Array.new(count - 1) { OPERATORS.sample }
 
-      answer = calculate(numbers, operators)
-      next if answer < 0
+      next if negative_at_any_step?(numbers, operators)
 
+      answer  = calculate(numbers, operators)
       text    = build_text(numbers, operators)
       choices = generate_choices(answer)
 
@@ -26,6 +26,19 @@ class QuestionGenerator
       end
     end
     result
+  end
+
+  # 最終結果だけでなく、計算の途中経過でもマイナスを経由しないことを保証する
+  def self.negative_at_any_step?(numbers, operators)
+    result = numbers[0]
+    operators.each_with_index do |op, i|
+      case op
+      when "たす" then result += numbers[i + 1]
+      when "ひく" then result -= numbers[i + 1]
+      end
+      return true if result < 0
+    end
+    false
   end
 
   def self.build_text(numbers, operators)
